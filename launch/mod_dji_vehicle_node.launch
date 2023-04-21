@@ -1,0 +1,30 @@
+<!-- Testing args and params referencing those args WORKS. And with namespace: WORKS-->
+<launch>
+<arg name="acm_name" default="/dev/ttyACM0"/>
+<arg name="serial_name" default="/dev/ttyUSB0"/>
+<arg name="baud_rate" default="230400"/>
+<arg name="app_id" default="1129522"/>
+<arg name="app_version" default="1"/>
+<arg name="align_time" default="false"/>
+<arg name="enc_key" default="5b15be1da21c6a882ddb2aa8ce9eef7f270d65ff5fd99f225d714e04e39e1110"/>
+<arg name="use_broadcast"  default="true"/>
+
+<arg name="msg" default="LAUNCHED FROM mod_dji_vehicle" />
+    <node name="mod_dji_pub_text" pkg="rostopic" type="rostopic"
+        args="pub /msg std_msgs/String '$(arg msg)'"
+        output="screen" />
+    <node name="mod_dji_print_text" pkg="rostopic" type="rostopic"
+        args="echo /msg" output="screen" />
+
+    <node pkg="dji_osdk_ros" type="dji_vehicle_node" name="vehicle_node" output="screen">
+    <!-- node parameters -->
+    <param name="acm_name" type="string" value="$(arg acm_name)"/>
+    <param name="serial_name" type="string" value="$(arg serial_name)"/>
+    <param name="baud_rate" type="int" value="$(arg baud_rate)"/>
+    <param name="app_id" type="int" value="$(arg app_id)"/>
+    <param name="app_version" type="int" value="$(arg app_version)"/>
+    <param name="align_time" type="bool" value="$(arg align_time)"/>
+    <param name="enc_key" type="string" value="$(arg enc_key)"/>
+    <param name="use_broadcast" type="bool" value="$(arg use_broadcast)"/>
+    </node>
+</launch>
