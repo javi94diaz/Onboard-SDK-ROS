@@ -69,9 +69,9 @@ int main(int argc, char** argv)
     %d",getWholeBatteryInfo.response.battery_whole_info.batteryState.LowVoltageAlarm); ROS_INFO("(It's valid only for M210V2)seriousLowCapacityAlarm is
     %d",getWholeBatteryInfo.response.battery_whole_info.batteryState.seriousLowCapacityAlarm); ROS_INFO("(It's valid only for M210V2)LowCapacityAlarm is
     %d",getWholeBatteryInfo.response.battery_whole_info.batteryState.LowCapacityAlarm);
-    */
     ROS_INFO("---------------------------------------------------");
-    ros::Duration(0.5 /*0.2*/).sleep();
+    */
+    ros::Duration(1 /*0.2*/).sleep();
     ROS_INFO("Single Battery Info:");
     ROS_INFO("The First Battery Info:");
     firstBatteryDynamicInfo.request.batteryIndex = dji_osdk_ros::GetSingleBatteryDynamicInfo::Request::first_smart_battery;
