@@ -1,5 +1,0 @@
-<launch>
-    <group>
-        <include file="$(find dji_osdk_ros)/launch/1test.launch"/>
-    </group>
-</launch>
