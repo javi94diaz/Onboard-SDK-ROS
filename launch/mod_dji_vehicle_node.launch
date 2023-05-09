@@ -1,9 +1,9 @@
 <!-- Modified launch file. Args: OK. Namespace: OK -->
 <launch>
-    <group ns="UAVDJI_MATRICE1">
+    <group ns="UAVDJIMATRICE1">
         <arg name="acm_name" default="/dev/ttyACM0"/>
         <arg name="serial_name" default="/dev/ttyUSB0"/>
-        <arg name="baud_rate" default="921600"/>
+        <arg name="baud_rate" default="230400"/>
         <arg name="app_id" default="1129522"/>
         <arg name="app_version" default="1"/>
         <arg name="align_time" default="false"/>
